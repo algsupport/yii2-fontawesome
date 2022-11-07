@@ -52,7 +52,7 @@ return [
         'assetManager' => [
             'bundles' => [
                 'algsupport\yii\fontawesome\CdnProAssetBundle' => [
-                    'css' => [
+                    'js' => [
                         'your kit',
                     ]
                 ],
