@@ -1,52 +1,53 @@
 <?php
 /**
  * Stack.php
- * @author Revin Roman
- * @link https://rmrevin.ru
+ * @author Albert Gukasian
+ * @link https://www.algsupport.com
  */
 
-namespace rmrevin\yii\fontawesome\component;
+namespace algsupport\yii\fontawesome\component;
 
-use rmrevin\yii\fontawesome\FontAwesome;
+use algsupport\yii\fontawesome\FontAwesome;
+use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
  * Class Stack
- * @package rmrevin\yii\fontawesome\component
+ * @package algsupport\yii\fontawesome\component
  */
 class Stack
 {
     /**
      * @var string
      */
-    private $iconCssPrefix = 'fa';
+    private string $iconCssPrefix;
 
     /**
      * @var array
      */
-    private $options = [];
+    private array $options;
 
     /**
      * @var Icon
      */
-    private $icon_front;
+    private Icon $icon_front;
 
     /**
-     * @var string
+     * @var ?string
      */
-    private $text_front = null;
+    private ?string $text_front = null;
 
     /**
      * @var Icon
      */
-    private $icon_back;
+    private Icon $icon_back;
 
     /**
      * @param string $iconCssPrefix
      * @param array $options
      */
-    public function __construct($iconCssPrefix, $options = [])
+    public function __construct(string $iconCssPrefix, array $options = [])
     {
         $this->iconCssPrefix = $iconCssPrefix;
 
@@ -57,7 +58,7 @@ class Stack
 
     /**
      * @return string
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException
      */
     public function __toString()
     {
@@ -67,7 +68,7 @@ class Stack
 
         $template = ArrayHelper::remove($options, 'template', '{back}{front}');
 
-        $iconBack = $this->icon_back instanceof Icon
+        $iconBack = ($this->icon_back instanceof Icon)
             ? $this->icon_back->addCssClass(FontAwesome::$basePrefix . '-stack-2x')
             : null;
 
@@ -87,9 +88,9 @@ class Stack
     /**
      * @param string|Icon $icon
      * @param array $options
-     * @return \rmrevin\yii\fontawesome\component\Stack
+     * @return Stack
      */
-    public function icon($icon, $options = [])
+    public function icon(Icon|string $icon, array $options = []): Stack
     {
         if (is_string($icon)) {
             $icon = new Icon($this->iconCssPrefix, $icon, $options);
@@ -103,9 +104,9 @@ class Stack
     /**
      * @param string $text
      * @param array $options
-     * @return \rmrevin\yii\fontawesome\component\Stack
+     * @return Stack
      */
-    public function text($text = '', $options = [])
+    public function text(string $text = '', array $options = []): static
     {
         $tag = ArrayHelper::remove($options, 'tag', 'span');
 
@@ -119,9 +120,9 @@ class Stack
     /**
      * @param string|Icon $icon
      * @param array $options
-     * @return \rmrevin\yii\fontawesome\component\Stack
+     * @return Stack
      */
-    public function on($icon, $options = [])
+    public function on(Icon|string $icon, array $options = []): static
     {
         if (is_string($icon)) {
             $icon = new Icon($this->iconCssPrefix, $icon, $options);

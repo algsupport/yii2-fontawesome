@@ -1,17 +1,12 @@
 <?php
-/**
- * FAR.php
- * @author Revin Roman
- * @link https://rmrevin.ru
- */
 
-namespace rmrevin\yii\fontawesome;
+	namespace algsupport\yii\fontawesome;
 
-/**
- * Class FAR
- * @package rmrevin\yii\fontawesome
- */
-class FAR extends FontAwesome
-{
-    public static $cssPrefix = 'far';
-}
+    class FAR extends FontAwesome
+	{
+		/**
+		 * CSS class prefix
+		 * @var string
+		 */
+		public static string $cssPrefix = 'fa-regular';
+	}

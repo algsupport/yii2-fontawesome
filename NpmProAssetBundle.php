@@ -1,17 +1,19 @@
 <?php
 /**
  * NpmProAssetBundle.php
- * @author Revin Roman
- * @link https://rmrevin.ru
+ * @author Albert Gukasian
+ * @link https://www.algsupport.com
  */
 
-namespace rmrevin\yii\fontawesome;
+namespace algsupport\yii\fontawesome;
+
+use yii\web\AssetBundle;
 
 /**
  * Class NpmProAssetBundle
- * @package rmrevin\yii\fontawesome
+ * @package algsupport\yii\fontawesome
  */
-class NpmProAssetBundle extends \yii\web\AssetBundle
+class NpmProAssetBundle extends AssetBundle
 {
     public $sourcePath = '@app/node_modules/@fortawesome/fontawesome-pro';
 

@@ -1,34 +1,34 @@
 <?php
 /**
  * Icon.php
- * @author Revin Roman
- * @link https://rmrevin.ru
+ * @author Albert Gukasian
+ * @link https://www.algsupport.com
  */
 
-namespace rmrevin\yii\fontawesome\component;
+namespace algsupport\yii\fontawesome\component;
 
-use rmrevin\yii\fontawesome\FontAwesome;
+use algsupport\yii\fontawesome\FontAwesome;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
  * Class Icon
- * @package rmrevin\yii\fontawesome\component
+ * @package algsupport\yii\fontawesome\component
  */
 class Icon
 {
     /**
      * @var array
      */
-    private $options = [];
+    private array $options;
 
     /**
      * @param string $cssPrefix
      * @param string $name
      * @param array $options
      */
-    public function __construct($cssPrefix, $name, $options = [])
+    public function __construct(string $cssPrefix, string $name, array $options = [])
     {
         Html::addCssClass($options, $cssPrefix);
 
@@ -52,83 +52,83 @@ class Icon
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function inverse()
+    public function inverse(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-inverse');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function spin()
+    public function spin(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-spin');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function pulse()
+    public function pulse(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-pulse');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function fixedWidth()
+    public function fixedWidth(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-fw');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function li()
+    public function li(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-li');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function border()
+    public function border(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-border');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function pullLeft()
+    public function pullLeft(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-pull-left');
     }
 
     /**
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function pullRight()
+    public function pullRight(): Icon
     {
         return $this->addCssClass(FontAwesome::$basePrefix . '-pull-right');
     }
 
     /**
      * @param string $value
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function size($value)
+    public function size(string $value): Icon
     {
         $values = [
             FontAwesome::SIZE_LG,
@@ -147,7 +147,7 @@ class Icon
 
         return $this->addCssClass(
             FontAwesome::$basePrefix . '-' . $value,
-            in_array((string)$value, $values, true),
+            in_array($value, $values, true),
             sprintf(
                 '%s - invalid value. Use one of the constants: %s.',
                 'FontAwesome::size()',
@@ -158,16 +158,16 @@ class Icon
 
     /**
      * @param string $value
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function rotate($value)
+    public function rotate(string $value): Icon
     {
         $values = [FontAwesome::ROTATE_90, FontAwesome::ROTATE_180, FontAwesome::ROTATE_270];
 
         return $this->addCssClass(
             FontAwesome::$basePrefix . '-rotate-' . $value,
-            in_array((string)$value, $values, true),
+            in_array($value, $values, true),
             sprintf(
                 '%s - invalid value. Use one of the constants: %s.',
                 'FontAwesome::rotate()',
@@ -178,16 +178,16 @@ class Icon
 
     /**
      * @param string $value
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @return Icon
+     * @throws InvalidConfigException
      */
-    public function flip($value)
+    public function flip(string $value): Icon
     {
         $values = [FontAwesome::FLIP_HORIZONTAL, FontAwesome::FLIP_VERTICAL];
 
         return $this->addCssClass(
             FontAwesome::$basePrefix . '-flip-' . $value,
-            in_array((string)$value, [FontAwesome::FLIP_HORIZONTAL, FontAwesome::FLIP_VERTICAL], true),
+            in_array($value, [FontAwesome::FLIP_HORIZONTAL, FontAwesome::FLIP_VERTICAL], true),
             sprintf(
                 '%s - invalid value. Use one of the constants: %s.',
                 'FontAwesome::flip()',
@@ -199,12 +199,12 @@ class Icon
     /**
      * @param string $class
      * @param bool $condition
-     * @param string|bool $throw
-     * @return \rmrevin\yii\fontawesome\component\Icon
-     * @throws \yii\base\InvalidConfigException
+     * @param bool|string $throw
+     * @return Icon
+     * @throws InvalidConfigException
      * @codeCoverageIgnore
      */
-    public function addCssClass($class, $condition = true, $throw = false)
+    public function addCssClass(string $class, bool $condition = true, bool|string $throw = false): Icon
     {
         if ($condition === false) {
             if (!empty($throw)) {

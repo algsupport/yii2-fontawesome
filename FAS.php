@@ -1,17 +1,12 @@
 <?php
-/**
- * FAS.php
- * @author Revin Roman
- * @link https://rmrevin.ru
- */
 
-namespace rmrevin\yii\fontawesome;
+	namespace algsupport\yii\fontawesome;
 
-/**
- * Class FAS
- * @package rmrevin\yii\fontawesome
- */
-class FAS extends FontAwesome
-{
-    public static $cssPrefix = 'fas';
-}
+	class FAS extends FontAwesome
+	{
+		/**
+		 * CSS class prefix
+		 * @var string
+		 */
+		public static string $cssPrefix = 'fa-solid';
+	}

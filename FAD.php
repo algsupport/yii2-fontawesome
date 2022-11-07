@@ -2,11 +2,11 @@
 
 	namespace algsupport\yii\fontawesome;
 
-    class FAL extends FontAwesome
+    class FAD extends FontAwesome
 	{
 		/**
 		 * CSS class prefix
 		 * @var string
 		 */
-		public static string $cssPrefix = 'fa-light';
+		public static string $cssPrefix = 'fa-duotone';
 	}

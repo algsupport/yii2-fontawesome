@@ -1,22 +1,18 @@
 <?php
 /**
  * CdnProAssetBundle.php
- * @author Revin Roman
- * @link https://rmrevin.ru
+ * @author Albert Gukasian
+ * @link https://www.algsupport.com
  */
 
-namespace rmrevin\yii\fontawesome;
+namespace algsupport\yii\fontawesome;
+
+use yii\web\AssetBundle;
 
 /**
  * Class CdnProAssetBundle
- * @package rmrevin\yii\fontawesome
+ * @package algsupport\yii\fontawesome
  */
-class CdnProAssetBundle extends \yii\web\AssetBundle
+class CdnProAssetBundle extends AssetBundle
 {
-    /**
-     * @inherit
-     */
-    public $css = [
-        'https://pro.fontawesome.com/releases/v5.15.1/css/all.css',
-    ];
 }
